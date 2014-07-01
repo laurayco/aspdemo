@@ -187,12 +187,6 @@
   <ItemGroup>
     <Content Include="index.aspx" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TelerikWebApp1.DataAccess\TelerikWebApp1.DataAccess.vbproj">
-      <Project>{88648AA4-6E03-4D1F-96B7-0CE0914D1EC1}</Project>
-      <Name>TelerikWebApp1.DataAccess</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
