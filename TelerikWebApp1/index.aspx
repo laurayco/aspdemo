@@ -78,10 +78,10 @@
                     <asp:Repeater ID="store_info" runat="server">
                         <ItemTemplate>
                             <tr>
-                                <td><%#Container.DataItem("Store")%></td>
-                                <td><%#Container.DataItem("SNMBR")%></td>
-                                <td><%#Container.DataItem("WHS")%></td>
-                                <td><%#Container.DataItem("WHSNMBR")%></td>
+                                <td><%#Container.DataItem("Store Name")%></td>
+                                <td><%#Container.DataItem("Store Nbr")%></td>
+                                <td><%#Container.DataItem("Whse Name")%></td>
+                                <td><%#Container.DataItem("Whse Nbr")%></td>
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>

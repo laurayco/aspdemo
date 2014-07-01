@@ -7,9 +7,12 @@ Partial Class Index
     Protected Overrides Sub OnLoad(ByVal e As EventArgs)
         MyBase.OnLoad(e)
         System.Console.WriteLine("PAGE LOAD!?")
-        Dim dbconn = New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=~/raw_data.xlsx;Extended Properties=""Excel 8.0;HDR=YES;""")
+        Dim dbconn = New OleDb.OleDbConnection("Server=.\SQLEXPRESS;Database=MookstrDB;Provider=SQLOLEDB;Trusted_Connection=Yes;")
         dbconn.Open()
-        Dim SQL = "Select ""Store Name"" as ""Store"", ""Store Nbr"" as ""SNMBR"", ""Whse Name"" as ""WHS"", ""Whse Nbr"" as ""WHSNMBR"" from [Sheet1$] GROUP BY WHSNMBR"
+        Dim dbSchema As DataTable = dbconn.GetOleDbSchemaTable(OleDb.OleDbSchemaGuid.Tables, Nothing)
+        Dim firstSheetName As String = dbSchema.Rows(0)("TABLE_NAME").ToString()
+        System.Console.WriteLine(firstSheetName)
+        Dim SQL = "Select * from [POS_Data]"
         Dim dbcomm = New OleDb.OleDbCommand(SQL, dbconn)
         Dim dbread = dbcomm.ExecuteReader()
         store_info.DataSource = dbread
