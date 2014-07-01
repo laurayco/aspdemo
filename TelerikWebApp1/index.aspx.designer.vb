@@ -48,4 +48,49 @@ Partial Public Class Index
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RadAjaxManager1 As Global.Telerik.Web.UI.RadAjaxManager
+
+    '''<summary>
+    '''Bandwidth control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Bandwidth As Global.Telerik.Web.UI.RadNumericTextBox
+
+    '''<summary>
+    '''Latency control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Latency As Global.Telerik.Web.UI.RadNumericTextBox
+
+    '''<summary>
+    '''Redirects control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Redirects As Global.Telerik.Web.UI.RadNumericTextBox
+
+    '''<summary>
+    '''CalculateButton control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CalculateButton As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''store_info control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents store_info As Global.System.Web.UI.WebControls.Repeater
 End Class

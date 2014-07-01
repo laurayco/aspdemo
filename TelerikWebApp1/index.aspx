@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="VB" AutoEventWireup="false" CodeBehind="index.aspx.vb" Inherits="TelerikWebApp1.Index" %>
+<%@ Import Namespace="System.Data" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -16,6 +17,10 @@
             <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
         </Scripts>
     </telerik:RadScriptManager>
+
+<script runat="server">
+</script>
+
     <script type="text/javascript">
         //Put your JavaScript code here.
     </script>
@@ -63,12 +68,24 @@
             <table>
                 <thead>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>Store Name</td>
+                        <td>Store No</td>
+                        <td>Warehouse</td>
+                        <td>Warehouse No</td>
                     </tr>
                 </thead>
+                <tbody runat="server">
+                    <asp:Repeater ID="store_info" runat="server">
+                        <ItemTemplate>
+                            <tr>
+                                <td><%#Container.DataItem("Store")%></td>
+                                <td><%#Container.DataItem("SNMBR")%></td>
+                                <td><%#Container.DataItem("WHS")%></td>
+                                <td><%#Container.DataItem("WHSNMBR")%></td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </tbody>
             </table>
         </div>
     </div>
