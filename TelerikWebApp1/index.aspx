@@ -23,10 +23,53 @@
     </telerik:RadAjaxManager>
     <div class="content_area">
         <div class="modal_content">
-            <telerik:RadDropDownList ID="InputA" runat="server" DropDownHeight="300px" Width="400px"
-                DefaultMessage="Choose an option???" DropDownWidth="400px"
-                DataValueField="InputAValue" DataTextField="Ohhhh"
-                DataSourceId=""></telerik:RadDropDownList>
+            <div>
+                <label for="Bandwidth">Pump-Up Quantity:</label>
+                <telerik:RadNumericTextBox
+                    runat="server"
+                    ShowSpinButtons="true"
+                    DataType="Int"
+                    Type="Number"
+                    ID="Bandwidth"
+                 ></telerik:RadNumericTextBox>
+            </div>
+            <div>
+                <label for="Latency">Catchup Effort:</label>
+                <telerik:RadNumericTextBox
+                    runat="server"
+                    ShowSpinButtons="true"
+                    DataType="Int"
+                    Type="Number"
+                    ID="Latency"
+                 ></telerik:RadNumericTextBox>
+            </div>
+            <div>
+                <label for="Redirects">Degrees of Freedom:</label>
+                <telerik:RadNumericTextBox
+                    runat="server"
+                    ShowSpinButtons="true"
+                    DataType="Int"
+                    Type="Number"
+                    ID="Redirects"
+                 ></telerik:RadNumericTextBox>
+            </div>
+            <div>
+                <asp:Button ID="CalculateButton" runat="server" Text="Calculate" />
+            </div>
+        </div>
+
+        <div class="modal_content">
+            <h1>Results:</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+            </table>
         </div>
     </div>
     </form>

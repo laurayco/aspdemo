@@ -48,13 +48,4 @@ Partial Public Class Index
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RadAjaxManager1 As Global.Telerik.Web.UI.RadAjaxManager
-
-    '''<summary>
-    '''InputA control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents InputA As Global.Telerik.Web.UI.RadDropDownList
 End Class
