@@ -72,16 +72,18 @@
                         <td>Store No</td>
                         <td>Warehouse</td>
                         <td>Warehouse No</td>
+                        <td>Quantity</td>
                     </tr>
                 </thead>
                 <tbody runat="server">
                     <asp:Repeater ID="store_info" runat="server">
                         <ItemTemplate>
                             <tr>
-                                <td><%#Container.DataItem("Store Name")%></td>
+                                <td>Store Number:</td>
                                 <td><%#Container.DataItem("Store Nbr")%></td>
-                                <td><%#Container.DataItem("Whse Name")%></td>
+                                <td>Warehouse Number:</td>
                                 <td><%#Container.DataItem("Whse Nbr")%></td>
+                                <td><%#Container.DataItem("To Order") %></td>
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>
