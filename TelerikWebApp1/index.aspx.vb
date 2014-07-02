@@ -4,17 +4,6 @@ Imports System.Data
 Partial Class Index
     Inherits System.Web.UI.Page
 
-    Protected Function GetConnection()
-        'Dim r = New OleDb.OleDbConnection(ConnectionString)
-        'r.Open()
-        Return Nothing
-    End Function
-
-    Protected Function ReadQuery(ByRef conn, ByVal query)
-        Dim cmd = New OleDb.OleDbCommand(query, conn)
-        Return cmd.ExecuteReader()
-    End Function
-
     Protected Sub OnCalculateClick(ByVal sender As Object, ByVal e As EventArgs)
         RunCalculations()
     End Sub
@@ -37,11 +26,6 @@ Partial Class Index
                     "(Minimum+SalesCatchup+SalesAmplify) As AmountToOrder " &
                     "From data", Latency.Value, Redirects.Value, HiSales.Value, Bandwidth.Value)
         DataSource.SelectCommand = query
-        'Dim dbread = ReadQuery(dbconn, query)
-        'store_info.DataSource = dbread
-        'store_info.DataBind()
-        'dbread.Close()
-        'dbconn.Close()
     End Sub
 
     Protected Overrides Sub OnLoad(ByVal e As EventArgs)
