@@ -4,16 +4,10 @@ Imports System.Data
 Partial Class Index
     Inherits System.Web.UI.Page
 
-    Dim HighSalesThreshold As Double = 0.5
-    Dim HighSalesBoost As Integer = 1
-    Dim TransitBoost As Integer = 1
-    Dim MinimumStock As Integer = 1
-    Dim ConnectionString As String = "Server=.\SQLEXPRESS;Database=MookstrDB;Provider=SQLOLEDB;Trusted_Connection=Yes;"
-
     Protected Function GetConnection()
-        Dim r = New OleDb.OleDbConnection(ConnectionString)
-        r.Open()
-        Return r
+        'Dim r = New OleDb.OleDbConnection(ConnectionString)
+        'r.Open()
+        Return Nothing
     End Function
 
     Protected Function ReadQuery(ByRef conn, ByVal query)
@@ -21,27 +15,33 @@ Partial Class Index
         Return cmd.ExecuteReader()
     End Function
 
+    Protected Sub OnCalculateClick(ByVal sender As Object, ByVal e As EventArgs)
+        RunCalculations()
+    End Sub
+
     Protected Sub RunCalculations()
-        Dim dbconn = GetConnection()
-        Dim query = "With data as (Select" &
+        Dim query = String.Format("With data as (Select " &
                         "SalesData.StoreNumber as StoreNumber," &
                         "SalesData.WarehouseNumber as WareHouseNumber," &
                         "SalesData.WeeklySales, " &
-                        "Case When SalesData.OnHand>0 Then 0 Else 1 END As Minimum," &
-                        "Case When SalesData.WeeklySales>(SalesData.OnHand+SalesData.OnOrder) Then 1 Else 0 END As SalesCatchUp," &
-                        "Case When SalesData.WeeklySales>0.5 Then 1 Else 0 End As SalesAmplify " &
-                    "From SalesData) Select" &
+                        "Case When SalesData.OnHand>0 Then 0 Else {0} END As Minimum," &
+                        "Case When SalesData.WeeklySales>(SalesData.OnHand+SalesData.OnOrder) Then {1} Else 0 END As SalesCatchUp," &
+                        "Case When SalesData.WeeklySales>{2} Then {3} Else 0 End As SalesAmplify " &
+                    "From SalesData) Select " &
                         "StoreNumber, " &
                         "WareHouseNumber, " &
                         "WeeklySales, " &
                         "Minimum, " &
                         "SalesCatchUp, " &
                         "SalesAmplify, " &
-                    "(Minimum+SalesCatchup+SalesAmplify) As AmountToOrder"
-        Dim dbread = ReadQuery(dbconn, query)
-        store_info.DataSource = dbread
-        store_info.DataBind()
-        dbread.Close()
+                    "(Minimum+SalesCatchup+SalesAmplify) As AmountToOrder " &
+                    "From data", Latency.Value, Redirects.Value, HiSales.Value, Bandwidth.Value)
+        DataSource.SelectCommand = query
+        'Dim dbread = ReadQuery(dbconn, query)
+        'store_info.DataSource = dbread
+        'store_info.DataBind()
+        'dbread.Close()
+        'dbconn.Close()
     End Sub
 
     Protected Overrides Sub OnLoad(ByVal e As EventArgs)

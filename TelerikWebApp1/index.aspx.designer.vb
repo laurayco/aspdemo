@@ -50,6 +50,15 @@ Partial Public Class Index
     Protected WithEvents RadAjaxManager1 As Global.Telerik.Web.UI.RadAjaxManager
 
     '''<summary>
+    '''HiSales control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents HiSales As Global.Telerik.Web.UI.RadNumericTextBox
+
+    '''<summary>
     '''Bandwidth control.
     '''</summary>
     '''<remarks>
@@ -86,11 +95,20 @@ Partial Public Class Index
     Protected WithEvents CalculateButton As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''store_info control.
+    '''datagrid control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents store_info As Global.System.Web.UI.WebControls.Repeater
+    Protected WithEvents datagrid As Global.Telerik.Web.UI.RadGrid
+
+    '''<summary>
+    '''DataSource control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DataSource As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

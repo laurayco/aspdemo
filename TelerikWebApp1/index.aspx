@@ -29,6 +29,17 @@
     <div class="content_area">
         <div class="modal_content">
             <div>
+                <label for="Redirects">Pump-Up Threshold:</label>
+                <telerik:RadNumericTextBox
+                    runat="server"
+                    ShowSpinButtons="true"
+                    DataType="Float"
+                    Type="Number"
+                    ID="HiSales"
+                    Value="0.5"
+                 ></telerik:RadNumericTextBox>
+            </div>
+            <div>
                 <label for="Bandwidth">Pump-Up Quantity:</label>
                 <telerik:RadNumericTextBox
                     runat="server"
@@ -36,59 +47,42 @@
                     DataType="Int"
                     Type="Number"
                     ID="Bandwidth"
+                    Value="1"
                  ></telerik:RadNumericTextBox>
             </div>
             <div>
-                <label for="Latency">Catchup Effort:</label>
+                <label for="Latency">Catch-Up Stock Quantity:</label>
                 <telerik:RadNumericTextBox
                     runat="server"
                     ShowSpinButtons="true"
                     DataType="Int"
                     Type="Number"
                     ID="Latency"
+                    Value="1"
                  ></telerik:RadNumericTextBox>
             </div>
             <div>
-                <label for="Redirects">Degrees of Freedom:</label>
+                <label for="Redirects">Minimum Stock:</label>
                 <telerik:RadNumericTextBox
                     runat="server"
                     ShowSpinButtons="true"
                     DataType="Int"
                     Type="Number"
                     ID="Redirects"
+                    Value="1"
                  ></telerik:RadNumericTextBox>
             </div>
             <div>
-                <asp:Button ID="CalculateButton" runat="server" Text="Calculate" />
+                <asp:Button ID="CalculateButton" runat="server" Text="Calculate" OnClick="OnCalculateClick" />
             </div>
         </div>
 
         <div class="modal_content">
-            <h1>Results:</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <td>Store Name</td>
-                        <td>Store No</td>
-                        <td>Warehouse</td>
-                        <td>Warehouse No</td>
-                        <td>Quantity</td>
-                    </tr>
-                </thead>
-                <tbody runat="server">
-                    <asp:Repeater ID="store_info" runat="server">
-                        <ItemTemplate>
-                            <tr>
-                                <td>Store Number:</td>
-                                <td><%#Container.DataItem("Store Nbr")%></td>
-                                <td>Warehouse Number:</td>
-                                <td><%#Container.DataItem("Whse Nbr")%></td>
-                                <td><%#Container.DataItem("To Order") %></td>
-                            </tr>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </tbody>
-            </table>
+            <telerik:RadGrid runat="server" ID="datagrid" AllowPaging="True" AllowSorting="True" DataMember="DefaultView" DataSourceID="DataSource">
+                <MasterTableView DataMember="DefaultView" DataSourceID="DataSource">
+                </MasterTableView>
+            </telerik:RadGrid>
+            <asp:SqlDataSource ID="DataSource" runat="server" ConnectionString="<%$ ConnectionStrings:MookstrDBConnectionString %>"></asp:SqlDataSource>
         </div>
     </div>
     </form>

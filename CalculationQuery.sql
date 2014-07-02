@@ -1,5 +1,4 @@
-﻿Use MookstrDB;
-With data as (Select
+﻿With data as (Select
 	SalesData.StoreNumber as StoreNumber,
 	SalesData.WarehouseNumber as WareHouseNumber,
 	SalesData.WeeklySales,
@@ -14,3 +13,4 @@ From SalesData) Select
 	SalesCatchUp,
 	SalesAmplify,
 	(Minimum+SalesCatchup+SalesAmplify) As AmountToOrder
+FROM data
